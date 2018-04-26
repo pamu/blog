@@ -1,7 +1,8 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Monoid     (mappend)
 import           Hakyll
+import           System.FilePath
 
 
 --------------------------------------------------------------------------------
@@ -17,6 +18,10 @@ main = hakyllWith customConf $ do
 
     match "css/**" $ do
         route idRoute
+        compile copyFileCompiler
+
+    match "CNAME" $ do
+        route $ customRoute (takeFileName . toFilePath)
         compile copyFileCompiler
 
     match (fromList ["resume.md", "contact.md"]) $ do
@@ -61,7 +66,6 @@ main = hakyllWith customConf $ do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
-
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
