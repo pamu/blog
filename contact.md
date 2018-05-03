@@ -1,6 +1,8 @@
 ---
 title: Contact
 ---
-I am a Monk living in Himalayas doing Haskell sitting in a cave.
 
-  *I am on the path to nirvana.*
+__Nagarjuna Pamu__
+
+- [StackOverflow](https://stackoverflow.com/users/3798102/pamu)
+- [LinkedIn](https://www.linkedin.com/in/nagarjunapamu)
