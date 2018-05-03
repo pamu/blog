@@ -15,10 +15,10 @@ __Programming Skills__
 - _Functional programming_
   - Cats, Cats effects, fs2.
 
-- Frameworks
+- _Frameworks_
   - Play framework, Slick, Akka, Android, Scala-react-js.
 
-- Databases and distributed systems
+- _Databases and distributed systems_
   - Postgresql, MongoDB, Cassandra, Kafka.
 
 __Work Experience__
@@ -40,5 +40,5 @@ __Work Experience__
 
 __Education__
 
-  - Indian Institute of Technology (IIT)
+  - Indian Institute of Technology (IIT Mandi)
   - Bachelor of Computer Science and Engineering (Aug. 2011 – June. 2015)
