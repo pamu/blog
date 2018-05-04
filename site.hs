@@ -8,6 +8,7 @@ import           System.FilePath
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyllWith customConf $ do
+
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -66,6 +67,12 @@ main = hakyllWith customConf $ do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
+
+    match "404.html" $ do
+      route idRoute
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
 
 --------------------------------------------------------------------------------
 postCtx :: Context String

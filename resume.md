@@ -2,7 +2,7 @@
 title: Resume
 ---
 
-__Nagarjuna Pamu__
+### __Nagarjuna Pamu__
 
 - [StackOverflow](https://stackoverflow.com/users/3798102/pamu)
 - [LinkedIn](https://www.linkedin.com/in/nagarjunapamu)
@@ -18,25 +18,19 @@ __Programming Skills__
 - _Frameworks_
   - Play framework, Slick, Akka, Android, Scala-react-js.
 
-- _Databases and distributed systems_
-  - Postgresql, MongoDB, Cassandra, Kafka.
-
 __Work Experience__
 
-- _Evolution Gaming_
+- _Evolution Gaming_ (May. 2017 - Present)
   - Scala developer
   - Riga, Latvia, Europe
-  - May. 2017 - Present
 
-- _Zilingo_
+- _Zilingo_ (June. 2016 - May. 2017)
   - Software developer
   - Bangalore, India
-  - June. 2016 - May. 2017
 
-- _Gozoomo_
+- _Gozoomo_ (June. 2015 - May. 2016)
   - Software engineer
   - Bangalore, India
-  - June. 2015 - May. 2016
 
 __Education__
 
