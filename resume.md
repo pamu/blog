@@ -11,10 +11,7 @@ __Programming Skills__
 
 - _Languages_
   - Scala, Haskell, Java, Eta, SQL, C.
-
-- _Functional programming_
-  - Cats, Cats effects, fs2.
-
+  
 - _Frameworks_
   - Play framework, Slick, Akka, Android, Scala-react-js.
 
