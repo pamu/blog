@@ -38,7 +38,7 @@ author: Nagarjuna Pamu
 
 ### Git clone hakyll template
 
-Here is the template [here](https://github.com/pamu/blog) to clone
+[Here](https://github.com/pamu/blog) is the template to clone
 
 ```bash
   git clone git@github.com:pamu/blog.git
@@ -52,13 +52,7 @@ Here is the template [here](https://github.com/pamu/blog) to clone
   site watch
 ```
 
-now open `http://localhost:8000` on your browser to see the static site.
-
-Add markdown files to posts folder of the blog and see the posts added on the blog.
-
-for example:
-
-In the `blog` folder, add a sample post
+Now open `http://localhost:8000` on your browser to see the static site. Add markdown files to posts folder of the blog and see the posts added on the blog. For example:  In the `blog` folder, add a sample post
 
 ```
   cd posts
