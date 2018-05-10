@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="shortcut icon" href="../images/lotus.png">
+        <title>Eternal seeker - Haskell project setup using stack.</title>
+        <link rel="stylesheet" href="../css/simple-grid.css" />
+        <link rel="stylesheet" href="../css/tufte.css" />
+        <link rel="stylesheet" href="../css/latex.css" />
+        <link rel="stylesheet" href="../css/custom.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="container">
+
+        <header>
+            <h1 class="center"><a href="../">Eternal seeker</a></h1>
+            <div class="row col">
+              <h3 class="col-3"><a href="../">Home</a></h3>
+              <h3 class="col-3"><a href="../resume.html">Resume</a></h3>
+              <h3 class="col-3"><a href="../contact.html">Contact</a></h3>
+              <h3 class="col-3"><a href="../archive.html">Archive</a></h3>
+            </div>
+        </header>
+
+        <div role="main">
+          <h2 class="center" style="margin-top:10%">Haskell project setup using stack.</h2>
+          <div class="header center">
+  Posted on May 11, 2018
+  
+    <em>by</em> <em class="font-heavy"> Nagarjuna Pamu </em>
+  
+</div>
+
+<article>
+  <h3 id="requirements">Requirements</h3>
+<ul>
+<li>Stack
+<ul>
+<li><a href="https://docs.haskellstack.org/en/stable/README/">Here</a> are instructions to install stack.</li>
+</ul></li>
+</ul>
+<h3 id="setting-up-new-haskell-project-using-stack">Setting up new Haskell project using Stack</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">    <span class="ex">stack</span> new <span class="op">&lt;</span>project name<span class="op">&gt;</span></a></code></pre></div>
+<p>Lets name the project <code>haskworks</code>. So the command to setup the haskell project called <code>haskworks</code> becomes</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">    <span class="ex">stack</span> new haskworks</a></code></pre></div>
+<p>Executing the above project generates a folder named <code>haskworks</code> which contains source code and build files.</p>
+<h3 id="haskell-project-structure">Haskell project structure</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">[<span class="ex">haskworks</span>] tree                                                               </a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ex">.</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">├── <span class="ex">ChangeLog.md</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">├── <span class="ex">LICENSE</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">├── <span class="ex">README.md</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">├── <span class="ex">Setup.hs</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">├── <span class="ex">app</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">│   └── <span class="ex">Main.hs</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">├── <span class="ex">haskworks.cabal</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">├── <span class="ex">package.yaml</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">├── <span class="ex">src</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">│   └── <span class="ex">Lib.hs</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">├── <span class="ex">stack.yaml</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">└── <span class="bu">test</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    └── <span class="ex">Spec.hs</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="ex">3</span> directories, 10 files</a></code></pre></div>
+<p><em>Here are the important files and folders to note</em></p>
+<ul>
+<li>Folders
+<ol type="1">
+<li>app
+<ul>
+<li>Code for executable (contains <code>Main.hs</code>)</li>
+</ul></li>
+<li>src
+<ul>
+<li>Library code. Exposes modules as a part of library. Generally it is a good practice to separate code into executable code and library code. Library code can be separated for re-use in another project</li>
+</ul></li>
+<li>test
+<ul>
+<li>Folder for all tests contains <code>main</code> function for indicating the starting point of the tests.</li>
+</ul></li>
+</ol></li>
+<li>Files
+<ol type="1">
+<li>package.yaml</li>
+<li>haskworks.cabal
+<ul>
+<li>As package.yaml is present haskworks.cabal file is auto generated from the package.yaml file contents.</li>
+<li>When stack build or install is launched .cabal file is auto generated from the package.yaml</li>
+<li><code>package.yaml</code> file exists for convinience. Only cabal file with <code>package.yaml</code> file can also be used for building the haskell project.</li>
+<li>Hpack (which stack uses internally) interprets <code>package.yaml</code> file and generates <code>haskworks.cabal</code> file</li>
+<li>Here are the important points why Hpack configuration <code>package.yaml</code> is used
+<ul>
+<li>The guiding design principles for Hpack are:
+<ul>
+<li>Don’t require the user to state the obvious, make sensible assumptions by default</li>
+<li>Give the user 100% control when needed</li>
+<li>Don’t require the user to repeat things, facilitate DRYness</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>stack.yaml
+<ul>
+<li><code>haskworks.cabal</code> is the real configuration file which is required for
+<ul>
+<li>specifying library dependencies and their versions.
+<ul>
+<li>Note that every library has a version.</li>
+<li>Some library version combinations may not be compatible with each other.</li>
+<li>For example, consider a fictitious case where Pandoc-0.0.1 may not be compatible with text-0.0.2.</li>
+<li>So given Pandoc-0.0.1, there will be version(s) for text which will be compatible</li>
+<li>Also note that this pandoc compatible text may not be compatible with another library, lets say, bytestring. So now, use text whic is compatible with both pandoc and bytestring.</li>
+<li>The above case becomes like the constraints solver case.</li>
+<li>Stack (which interprets stack.yaml) solves this problem with help of resolver.</li>
+<li>Resolver is a repository which contains are all compatible library versions. So that user can safely mention the library names and ignoring the versions.</li>
+<li>Just mention the resolver which you are interested in and all right compatible versions of library are used automatically by stack.</li>
+<li>Stack also manages multiple projects but, cabal does not have that capability.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol></li>
+</ul>
+<h3 id="haskworks.cabal-and-package.yaml-files">haskworks.cabal and package.yaml files</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">name:</span><span class="at">                haskworks</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">version:</span><span class="at">             0.1.0.0</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">github:</span><span class="at">              </span><span class="st">&quot;githubuser/haskworks&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="fu">license:</span><span class="at">             BSD3</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">author:</span><span class="at">              </span><span class="st">&quot;Author name here&quot;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">maintainer:</span><span class="at">          </span><span class="st">&quot;example@example.com&quot;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="fu">copyright:</span><span class="at">           </span><span class="st">&quot;2018 Author name here&quot;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="fu">extra-source-files:</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw">-</span> README.md</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="kw">-</span> ChangeLog.md</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># Metadata used when publishing your package</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># synopsis:            Short description of your package</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co"># category:            Web</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co"># To avoid duplicated efforts in documentation and dealing with the</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co"># complications of embedding Haddock markup inside cabal files, it is</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co"># common to point users to the README.md file.</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="fu">description:</span><span class="at">         Please see the README on GitHub at &lt;https://github.com/githubuser/haskworks</span><span class="co">#readme&gt;</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="kw">-</span> base &gt;= 4.7 &amp;&amp; &lt; 5</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="fu">library:</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">  <span class="fu">source-dirs:</span><span class="at"> src</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="fu">executables:</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">  <span class="fu">haskworks-exe:</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30">    <span class="fu">main:</span><span class="at">                Main.hs</span></a>
+<a class="sourceLine" id="cb4-31" data-line-number="31">    <span class="fu">source-dirs:</span><span class="at">         app</span></a>
+<a class="sourceLine" id="cb4-32" data-line-number="32">    <span class="fu">ghc-options:</span></a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">    <span class="kw">-</span> -threaded</a>
+<a class="sourceLine" id="cb4-34" data-line-number="34">    <span class="kw">-</span> -rtsopts</a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="kw">-</span> -with-rtsopts=-N</a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">    <span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">    <span class="kw">-</span> haskworks</a>
+<a class="sourceLine" id="cb4-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="fu">tests:</span></a>
+<a class="sourceLine" id="cb4-40" data-line-number="40">  <span class="fu">haskworks-test:</span></a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">    <span class="fu">main:</span><span class="at">                Spec.hs</span></a>
+<a class="sourceLine" id="cb4-42" data-line-number="42">    <span class="fu">source-dirs:</span><span class="at">         test</span></a>
+<a class="sourceLine" id="cb4-43" data-line-number="43">    <span class="fu">ghc-options:</span></a>
+<a class="sourceLine" id="cb4-44" data-line-number="44">    <span class="kw">-</span> -threaded</a>
+<a class="sourceLine" id="cb4-45" data-line-number="45">    <span class="kw">-</span> -rtsopts</a>
+<a class="sourceLine" id="cb4-46" data-line-number="46">    <span class="kw">-</span> -with-rtsopts=-N</a>
+<a class="sourceLine" id="cb4-47" data-line-number="47">    <span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-48" data-line-number="48">    <span class="kw">-</span> haskworks</a></code></pre></div>
+<h3 id="stack.yaml">Stack.yaml</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">resolver:</span><span class="at"> lts-11.8</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="fu">packages:</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">-</span> .</a></code></pre></div>
+<h3 id="building-running-installing-and-testing-haskell-code">building, running, installing and testing Haskell code</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">    <span class="ex">stack</span> build</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">    <span class="ex">stack</span> exec <span class="op">&lt;</span>executable_name<span class="op">&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1">    <span class="ex">stack</span> install</a></code></pre></div>
+<p>moves to the executable binary to <code>~/.local/bin</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">    <span class="ex">stack</span> test</a></code></pre></div>
+<h3 id="rapid-compiler-feeback-mode">Rapid compiler feeback mode</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">    <span class="ex">stack</span> build --fast --file-watch</a></code></pre></div>
+</article>
+
+        </div>
+
+        <footer>
+          <section>
+            <h4>
+              Site powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+            </h4>
+          </section>
+        </footer>
+
+    </body>
+</html>
