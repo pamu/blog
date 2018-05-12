@@ -3,6 +3,11 @@
 import           Data.Monoid     (mappend)
 import           Hakyll
 import           System.FilePath
+import           Data.List
+import           Data.Ord
+import           Control.Monad
+import           Data.Time
+import           Data.Monoid
 
 
 --------------------------------------------------------------------------------
@@ -34,6 +39,7 @@ main = hakyllWith customConf $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -73,6 +79,37 @@ main = hakyllWith customConf $ do
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         >>= relativizeUrls
+
+    create ["feed.xml"] $ do
+      route idRoute
+      compile $ do
+        loadAllSnapshots "posts/*" "content"
+          >>= (fmap (take 10)) . createdFirst
+          >>= renderAtom feedConfiguration feedCtx
+            where
+              feedCtx :: Context String
+              feedCtx =  defaultContext <>
+                          bodyField "description"
+
+--------------------------------------------------------------------------------
+
+feedConfiguration :: FeedConfiguration
+feedConfiguration = FeedConfiguration
+    { feedTitle       = "Functional programming"
+    , feedDescription = "Functional programming ideas"
+    , feedAuthorName  = "nagarjuna pamu"
+    , feedAuthorEmail = "nagarjuna.pamu@gmail.com"
+    , feedRoot        = "https://haskworks.com"
+    }
+
+--------------------------------------------------------------------------------
+
+createdFirst :: [Item String] -> Compiler [Item String]
+createdFirst items = do
+  itemsWithTime <- forM items $ \item -> do
+    utc <- getItemUTC defaultTimeLocale $ itemIdentifier item
+    return (utc,item)
+  return $ map snd $ reverse $ sortBy (comparing fst) itemsWithTime
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
