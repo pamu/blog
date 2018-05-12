@@ -10,10 +10,13 @@ title: Resume
 __Programming Skills__
 
 - _Languages_
-  - Scala, Haskell, Java, Eta, SQL, C.
-  
+  - Scala, Haskell, Java, SQL, C.
+
 - _Frameworks_
-  - Play framework, Slick, Akka, Android, Scala-react-js.
+  - Play framework, Slick, Akka, Android, Scala react, Scala-js-react.
+
+- Databases and tools
+  - PostgresQL, Mongo, Cassandra, Kafka
 
 __Work Experience__
 
