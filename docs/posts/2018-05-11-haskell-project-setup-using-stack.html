@@ -124,57 +124,52 @@
 <h3 id="haskworks.cabal-and-package.yaml-files">haskworks.cabal and package.yaml files</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">name:</span><span class="at">                haskworks</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">version:</span><span class="at">             0.1.0.0</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">github:</span><span class="at">              </span><span class="st">&quot;githubuser/haskworks&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">github:</span><span class="at">              </span><span class="st">&quot;pamu/haskworks&quot;</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="fu">license:</span><span class="at">             BSD3</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">author:</span><span class="at">              </span><span class="st">&quot;Author name here&quot;</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">maintainer:</span><span class="at">          </span><span class="st">&quot;example@example.com&quot;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="fu">copyright:</span><span class="at">           </span><span class="st">&quot;2018 Author name here&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="fu">author:</span><span class="at">              </span><span class="st">&quot;Pamu&quot;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">maintainer:</span><span class="at">          </span><span class="st">&quot;pamu@github.com&quot;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="fu">copyright:</span><span class="at">           </span><span class="st">&quot;2018 Pamu&quot;</span></a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="fu">extra-source-files:</span></a>
 <a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw">-</span> README.md</a>
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="kw">-</span> ChangeLog.md</a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co"># Metadata used when publishing your package</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co"># synopsis:            Short description of your package</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co"># category:            Web</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co"># To avoid duplicated efforts in documentation and dealing with the</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co"># complications of embedding Haddock markup inside cabal files, it is</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co"># common to point users to the README.md file.</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="fu">description:</span><span class="at">         Please see the README on GitHub at &lt;https://github.com/githubuser/haskworks</span><span class="co">#readme&gt;</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="fu">dependencies:</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="kw">-</span> base &gt;= 4.7 &amp;&amp; &lt; 5</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="fu">library:</span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">  <span class="fu">source-dirs:</span><span class="at"> src</span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="fu">executables:</span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29">  <span class="fu">haskworks-exe:</span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">    <span class="fu">main:</span><span class="at">                Main.hs</span></a>
-<a class="sourceLine" id="cb4-31" data-line-number="31">    <span class="fu">source-dirs:</span><span class="at">         app</span></a>
-<a class="sourceLine" id="cb4-32" data-line-number="32">    <span class="fu">ghc-options:</span></a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">    <span class="kw">-</span> -threaded</a>
-<a class="sourceLine" id="cb4-34" data-line-number="34">    <span class="kw">-</span> -rtsopts</a>
-<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="kw">-</span> -with-rtsopts=-N</a>
-<a class="sourceLine" id="cb4-36" data-line-number="36">    <span class="fu">dependencies:</span></a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">    <span class="kw">-</span> haskworks</a>
-<a class="sourceLine" id="cb4-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="fu">tests:</span></a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">  <span class="fu">haskworks-test:</span></a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">    <span class="fu">main:</span><span class="at">                Spec.hs</span></a>
-<a class="sourceLine" id="cb4-42" data-line-number="42">    <span class="fu">source-dirs:</span><span class="at">         test</span></a>
-<a class="sourceLine" id="cb4-43" data-line-number="43">    <span class="fu">ghc-options:</span></a>
-<a class="sourceLine" id="cb4-44" data-line-number="44">    <span class="kw">-</span> -threaded</a>
-<a class="sourceLine" id="cb4-45" data-line-number="45">    <span class="kw">-</span> -rtsopts</a>
-<a class="sourceLine" id="cb4-46" data-line-number="46">    <span class="kw">-</span> -with-rtsopts=-N</a>
-<a class="sourceLine" id="cb4-47" data-line-number="47">    <span class="fu">dependencies:</span></a>
-<a class="sourceLine" id="cb4-48" data-line-number="48">    <span class="kw">-</span> haskworks</a></code></pre></div>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="fu">description:</span><span class="at">  Haskell demo project</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="kw">-</span> base &gt;= 4.7 &amp;&amp; &lt; 5</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="fu">library:</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">  <span class="fu">source-dirs:</span><span class="at"> src</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="fu">executables:</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">  <span class="fu">haskworks-exe:</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">    <span class="fu">main:</span><span class="at">                Main.hs</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">    <span class="fu">source-dirs:</span><span class="at">         app</span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">    <span class="fu">ghc-options:</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">    <span class="kw">-</span> -threaded</a>
+<a class="sourceLine" id="cb4-27" data-line-number="27">    <span class="kw">-</span> -rtsopts</a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">    <span class="kw">-</span> -with-rtsopts=-N</a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">    <span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30">    <span class="kw">-</span> haskworks</a>
+<a class="sourceLine" id="cb4-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="fu">tests:</span></a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">  <span class="fu">haskworks-test:</span></a>
+<a class="sourceLine" id="cb4-34" data-line-number="34">    <span class="fu">main:</span><span class="at">                Spec.hs</span></a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="fu">source-dirs:</span><span class="at">         test</span></a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">    <span class="fu">ghc-options:</span></a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">    <span class="kw">-</span> -threaded</a>
+<a class="sourceLine" id="cb4-38" data-line-number="38">    <span class="kw">-</span> -rtsopts</a>
+<a class="sourceLine" id="cb4-39" data-line-number="39">    <span class="kw">-</span> -with-rtsopts=-N</a>
+<a class="sourceLine" id="cb4-40" data-line-number="40">    <span class="fu">dependencies:</span></a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">    <span class="kw">-</span> haskworks</a></code></pre></div>
 <h3 id="stack.yaml">Stack.yaml</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">resolver:</span><span class="at"> lts-11.8</span></a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">resolver:</span><span class="at"> lts-11.9</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="fu">packages:</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">-</span> .</a></code></pre></div>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">-</span> .</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="fu">extra-deps:</span><span class="at"> </span><span class="kw">[]</span></a></code></pre></div>
 <h3 id="building-running-installing-and-testing-haskell-code">building, running, installing and testing Haskell code</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1">    <span class="ex">stack</span> build</a></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1">    <span class="ex">stack</span> exec <span class="op">&lt;</span>executable_name<span class="op">&gt;</span></a></code></pre></div>

@@ -84,24 +84,17 @@ _Here are the important files and folders to note_
 ```yaml
 name:                haskworks
 version:             0.1.0.0
-github:              "githubuser/haskworks"
+github:              "pamu/haskworks"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2018 Author name here"
+author:              "Pamu"
+maintainer:          "pamu@github.com"
+copyright:           "2018 Pamu"
 
 extra-source-files:
 - README.md
 - ChangeLog.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/haskworks#readme>
+description:  Haskell demo project
 
 dependencies:
 - base >= 4.7 && < 5
@@ -135,11 +128,12 @@ tests:
 ### Stack.yaml
 
 ```yaml
-resolver: lts-11.8
+resolver: lts-11.9
 
 packages:
 - .
 
+extra-deps: []
 ```
 
 ### building, running, installing and testing Haskell code
