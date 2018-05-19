@@ -8,8 +8,17 @@
         <name>nagarjuna pamu</name>
         <email>nagarjuna.pamu@gmail.com</email>
     </author>
-    <updated>2018-05-19T00:00:00Z</updated>
+    <updated>2018-05-20T00:00:00Z</updated>
     <entry>
+    <title>Working with Aeson (json) library in Haskell</title>
+    <link href="https://haskworks.com/posts/2018-05-20-working-with-aeson-in-haskell.html" />
+    <id>https://haskworks.com/posts/2018-05-20-working-with-aeson-in-haskell.html</id>
+    <published>2018-05-20T00:00:00Z</published>
+    <updated>2018-05-20T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<h3 id="aeson-is-the-most-widely-used-library-for-json-parsing-and-manipulation-in-haskell-ecosystem.">Aeson is the most widely used library for json parsing and manipulation in <code>Haskell</code> ecosystem.</h3>
+<p>Get familiar with <code>aeson</code> in this blog post.</p>]]></summary>
+</entry>
+<entry>
     <title>Building micro services in Haskell</title>
     <link href="https://haskworks.com/posts/2018-05-19-19-building-micro-services-in-haskell.html" />
     <id>https://haskworks.com/posts/2018-05-19-19-building-micro-services-in-haskell.html</id>
