@@ -27,15 +27,18 @@
         <div role="main">
           <h2 class="center" style="margin-top:10%">Working with Aeson (json) library in Haskell</h2>
           <div class="header center">
-  Posted on May 20, 2018
+  Posted on May 19, 2018
   
     <em>by</em> <em class="font-heavy"> Nagarjuna Pamu </em>
   
 </div>
 
 <article>
-  <h3 id="aeson-is-the-most-widely-used-library-for-json-parsing-and-manipulation-in-haskell-ecosystem.">Aeson is the most widely used library for json parsing and manipulation in <code>Haskell</code> ecosystem.</h3>
-<p>Get familiar with <code>aeson</code> in this blog post.</p>
+  <p>Aeson is the most widely used library for JSON parsing and JSON manipulation in <code>Haskell</code> ecosystem.</p>
+<p>Aeson exposes following notable functions when you import <code>Data.Aeson</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb1-1" data-line-number="1">decode :: FromJSON a =&gt; ByteString -&gt; Maybe a</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">encode :: ToJSON a =&gt; a -&gt; ByteString</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">eitherDecode :: FromJSON a =&gt; ByteString -&gt; Either String a</a></code></pre></div>
 </article>
 
         </div>
