@@ -8,20 +8,8 @@
         <name>nagarjuna pamu</name>
         <email>nagarjuna.pamu@gmail.com</email>
     </author>
-    <updated>2018-05-19T00:00:00Z</updated>
+    <updated>2018-05-18T00:00:00Z</updated>
     <entry>
-    <title>Working with Aeson (json) library in Haskell</title>
-    <link href="https://haskworks.com/posts/2018-05-19-working-with-aeson-in-haskell.html" />
-    <id>https://haskworks.com/posts/2018-05-19-working-with-aeson-in-haskell.html</id>
-    <published>2018-05-19T00:00:00Z</published>
-    <updated>2018-05-19T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<p>Aeson is the most widely used library for JSON parsing and JSON manipulation in <code>Haskell</code> ecosystem.</p>
-<p>Aeson exposes following notable functions when you import <code>Data.Aeson</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb1-1" data-line-number="1">decode :: FromJSON a =&gt; ByteString -&gt; Maybe a</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">encode :: ToJSON a =&gt; a -&gt; ByteString</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">eitherDecode :: FromJSON a =&gt; ByteString -&gt; Either String a</a></code></pre></div>]]></summary>
-</entry>
-<entry>
     <title>Solving a coding task in Haskell</title>
     <link href="https://haskworks.com/posts/2018-05-18-solving-simple-coding-problem-in-haskell.html" />
     <id>https://haskworks.com/posts/2018-05-18-solving-simple-coding-problem-in-haskell.html</id>
