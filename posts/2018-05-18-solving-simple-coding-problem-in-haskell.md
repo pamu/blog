@@ -3,7 +3,7 @@
   author: Nagarjuna Pamu
 ---
 
-One of my friends who recently gave a online coding test shared a simple programming task which he encountered. Though he solved the problem correctly his solution was timing out for large inputs. Lets see the problem and give a better solution and analyse the problem more.
+One of my friends who recently gave a online coding test shared a simple programming task which he encountered. Though he solved the problem correctly his solution was timing out for large inputs. Lets see the problem and give a better solution and analyze the problem more.
 
 
 ### __Problem statement__
