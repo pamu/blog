@@ -1,3 +1,7 @@
+html {
+  font-family: 'Fira code';
+}
+
 pre {
   background-color: #D3D3D3 !important;
   padding-top: 8px;
@@ -6,3 +10,4 @@ pre {
   padding-right: 4px;
   border-radius: 4px;
 }
+
