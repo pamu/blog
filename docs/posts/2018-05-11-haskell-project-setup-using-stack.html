@@ -5,34 +5,41 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <link rel="shortcut icon" href="../images/haskell-dark.png">
         <title>Eternal seeker - Haskell project setup using stack.</title>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/simple-grid.css" />
         <link rel="stylesheet" href="../css/custom.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="container">
 
-        <header>
-            <h1 class="center"><a href="../">Eternal seeker</a></h1>
-            <div class="row col">
-              <h3 class="col-2"><a href="../">Home</a></h3>
-              <h3 class="col-2"><a href="../resume.html">Resume</a></h3>
-              <h3 class="col-2"><a href="../contact.html">Contact</a></h3>
-              <h3 class="col-2"><a href="../archive.html">Archive</a></h3>
-              <h3 class="col-2"><a href="../feed.xml">rss feed</a></h3>
-            </div>
-        </header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../">Eternal seeker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="../resume.html">Resume <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="../contact.html">Contact</a>
+            <a class="nav-item nav-link active" href="../archive.html">Archive</a>
+            <a class="nav-item nav-link active" href="../feed.xml">Feed</a>
+          </div>
+        </div>
+      </nav>
 
         <div role="main">
-          <h2 class="center" style="margin-top:10%">Haskell project setup using stack.</h2>
-          <div class="header center">
+          <div class="jumbotron">
+          <h3 class="display-6">Haskell project setup using stack.</h3>
+          <em>
   Posted on May 11, 2018
   
     <em>by</em> <em class="font-heavy"> Nagarjuna Pamu </em>
   
-</div>
+</em>
 
-<article>
+<hr />
+
+<div>
   <h3 id="requirements">Requirements</h3>
 <ul>
 <li>Stack
@@ -177,15 +184,16 @@
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1">    <span class="ex">stack</span> test</a></code></pre></div>
 <h3 id="rapid-compiler-feeback-mode">Rapid compiler feeback mode</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1">    <span class="ex">stack</span> build --fast --file-watch</a></code></pre></div>
-</article>
-
+</div>
+    
+          </div>
         </div>
 
         <footer>
           <section>
-            <h4>
-              Site powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-            </h4>
+            <em>
+              Created using <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+            </em>
           </section>
         </footer>
 

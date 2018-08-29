@@ -5,34 +5,41 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <link rel="shortcut icon" href="../images/haskell-dark.png">
         <title>Eternal seeker - Solving a coding task in Haskell</title>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/tonsky/FiraCode/1.205/distr/fira_code.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/simple-grid.css" />
         <link rel="stylesheet" href="../css/custom.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="container">
 
-        <header>
-            <h1 class="center"><a href="../">Eternal seeker</a></h1>
-            <div class="row col">
-              <h3 class="col-2"><a href="../">Home</a></h3>
-              <h3 class="col-2"><a href="../resume.html">Resume</a></h3>
-              <h3 class="col-2"><a href="../contact.html">Contact</a></h3>
-              <h3 class="col-2"><a href="../archive.html">Archive</a></h3>
-              <h3 class="col-2"><a href="../feed.xml">rss feed</a></h3>
-            </div>
-        </header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../">Eternal seeker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="../resume.html">Resume <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="../contact.html">Contact</a>
+            <a class="nav-item nav-link active" href="../archive.html">Archive</a>
+            <a class="nav-item nav-link active" href="../feed.xml">Feed</a>
+          </div>
+        </div>
+      </nav>
 
         <div role="main">
-          <h2 class="center" style="margin-top:10%">Solving a coding task in Haskell</h2>
-          <div class="header center">
+          <div class="jumbotron">
+          <h3 class="display-6">Solving a coding task in Haskell</h3>
+          <em>
   Posted on May 18, 2018
   
     <em>by</em> <em class="font-heavy"> Nagarjuna Pamu </em>
   
-</div>
+</em>
 
-<article>
+<hr />
+
+<div>
   <p>One of my friends who recently gave a online coding test shared a simple programming task which he encountered. Though he solved the problem correctly his solution was timing out for large inputs. Lets see the problem and give a better solution and analyze the problem more.</p>
 <h3 id="problem-statement"><strong>Problem statement</strong></h3>
 <p>There are <code>n</code> candies to consume to start with. Only <code>a</code> candies can be consumed at once. When <code>a</code> candies are consumed <code>b</code> candies are generated. User tries to consume all the candies. The question is weather its possible to consume all the candies. If possible How many candies are consumed by the user until he finishes all the candies. If number of candies left is less than <code>a</code> then all candies can be consumed and no generation happens. Generation of candies happens only when <code>a</code> candies are consumed.</p>
@@ -229,15 +236,16 @@
 <a class="sourceLine" id="cb9-15" data-line-number="15"><span class="dv">358159137135</span></a>
 <a class="sourceLine" id="cb9-16" data-line-number="16">(<span class="fl">0.00</span> secs, <span class="dv">79</span>,<span class="dv">600</span> bytes)</a></code></pre></div>
 <p><em>Now, the code is quite faster than the previous one. Also the case in which consumption is lesser than or equal to production is patched.</em></p>
-</article>
-
+</div>
+    
+          </div>
         </div>
 
         <footer>
           <section>
-            <h4>
-              Site powered by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-            </h4>
+            <em>
+              Created using <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+            </em>
           </section>
         </footer>
 
