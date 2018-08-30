@@ -292,10 +292,6 @@
 <ul>
 <li>Note that every library has a version.</li>
 <li>Some library version combinations may not be compatible with each other.</li>
-<li>For example, consider a fictitious case where Pandoc-0.0.1 may not be compatible with text-0.0.2.</li>
-<li>So given Pandoc-0.0.1, there will be version(s) for text which will be compatible</li>
-<li>Also note that this pandoc compatible text may not be compatible with another library, lets say, bytestring. So now, use text whic is compatible with both pandoc and bytestring.</li>
-<li>The above case becomes like the constraints solver case.</li>
 <li>Stack (which interprets stack.yaml) solves this problem with help of resolver.</li>
 <li>Resolver is a repository which contains are all compatible library versions. So that user can safely mention the library names and ignoring the versions.</li>
 <li>Just mention the resolver which you are interested in and all right compatible versions of library are used automatically by stack.</li>
