@@ -52,7 +52,9 @@ author: Nagarjuna Pamu
   site watch
 ```
 
-Now open `http://localhost:8000` on your browser to see the static site. Add markdown files to posts folder of the blog and see the posts added on the blog. For example:  In the `blog` folder, add a sample post
+Now open `http://localhost:8000` on your browser to see the static site.
+Add markdown files to posts folder of the blog and see the posts added on the blog.
+For example:  In the `blog` folder, add a sample post
 
 ```
   cd posts
