@@ -1,8 +1,10 @@
 ---
-title: Resume
+title: Nagarjuna Pamu
 ---
 
-### __Nagarjuna Pamu__
+Hello,
+
+<img src="/images/me.jpg" width="200">
 
 - [StackOverflow](https://stackoverflow.com/users/3798102/pamu)
 - [LinkedIn](https://www.linkedin.com/in/nagarjunapamu)
