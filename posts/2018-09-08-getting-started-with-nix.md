@@ -35,3 +35,4 @@ function <environment>:
 
 Though above definition gives some idea about the nix. But Lets understand nix using an example. In this example lets create a nix package using nix expression language then, create a derivation from the nix expression and finally build the package.
 
+to be continued ...

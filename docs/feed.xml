@@ -15,7 +15,66 @@
     <id>https://haskworks.com/posts/2018-09-09-queue-in-haskell-scala.html</id>
     <published>2018-09-09T00:00:00Z</published>
     <updated>2018-09-09T00:00:00Z</updated>
-    <summary type="html"><![CDATA[<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1">    <span class="kw">data</span> <span class="dt">Queue</span> a <span class="fu">=</span> <span class="dt">Queue</span> [a] [a] <span class="kw">deriving</span> (<span class="dt">Show</span>)</a></code></pre></div>]]></summary>
+    <summary type="html"><![CDATA[<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">data</span> <span class="dt">List</span> a <span class="fu">=</span> <span class="dt">Nil</span> <span class="fu">|</span> <span class="dt">Cons</span> a (<span class="dt">List</span> a) <span class="kw">deriving</span> (<span class="dt">Show</span>)</a></code></pre></div>
+<p>We all know that cons list is the very popular in functional programming data structures. The time complexity of the cons list for prepending an element to the existing list is constant, but appending takes linear time complexity and also linear space complexity.</p>
+<p>So, One data structure that can be modeled naturally with the help of cons list is <code>Stack</code>. Prepending operation can be used for pushing an element on top of the stack. In order to pop the element, all that is needed is to drop the first element of the cons list and retain the tail.</p>
+<p>Good thing is prepending and dropping the first element happens in const space and time complexity.</p>
+<p><strong><em>Notice that appending time complexity and space complexity is linear for cons list.</em></strong></p>
+<p>This Results in lot of garbage when appending operation happens on the cons list. Usually algorithms which use immutable data structures use prepending operation and reverse the list as the final operation before returning the final result (list).</p>
+<p>Lets now see How we can model a <code>Queue</code> in a immutable fashion using basic building in two functional languages. First in Haskell and in Scala.</p>
+<h3 id="code-in-haskell">Code in Haskell</h3>
+<p>Immutable queue</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">data</span> <span class="dt">Queue</span> a <span class="fu">=</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">Queue</span> [a] <span class="co">-- Dequeue list</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">        [a] <span class="co">-- Enqueue list</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">deriving</span> (<span class="dt">Show</span>)</a></code></pre></div>
+<p>Dequeue list is for</p>
+<p>Building a immutable empty Queue</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ot">empty ::</span> <span class="dt">Queue</span> a</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">empty <span class="fu">=</span> <span class="dt">Queue</span> [] []</a></code></pre></div>
+<p>Enqueue operation. Prepending the incoming element to the head of the enqueue list. Note this is a constant time and space operation.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ot">enqueue ::</span> a <span class="ot">-&gt;</span> <span class="dt">Queue</span> a <span class="ot">-&gt;</span> <span class="dt">Queue</span> a</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">enqueue elem (<span class="dt">Queue</span> xs ys) <span class="fu">=</span> <span class="dt">Queue</span> xs (elem <span class="fu">:</span> ys)</a></code></pre></div>
+<p>Dequeue mantra</p>
+<ul>
+<li><p>When both dequeue list (first list) and enqueue list (second list) is empty. Then that means queue is empty</p></li>
+<li><p>When dequeue list is not empty (first list) then remove element from the head of the dequeue list and then update the dequeue part of the queue with the tail of the dequeue list (first list)</p></li>
+<li><p>When Dequeue list is empty. Load values from the enqueue list (second list). While loading remember to reverse the enqueue list to maintain the order of removal (dequeuing) of the elements from the queue.</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ot">tryDequeue ::</span> <span class="dt">Queue</span> a <span class="ot">-&gt;</span> <span class="dt">Maybe</span> (a, <span class="dt">Queue</span> a)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">tryDequeue (<span class="dt">Queue</span> [] []) <span class="fu">=</span> <span class="dt">Nothing</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">tryDequeue (<span class="dt">Queue</span> (x<span class="fu">:</span>xs) ys) <span class="fu">=</span> <span class="dt">Just</span> (x, <span class="dt">Queue</span> xs ys)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">tryDequeue (<span class="dt">Queue</span> [] ys) <span class="fu">=</span> <span class="dt">Just</span> (head, <span class="dt">Queue</span> tail [])</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">where</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    reversedList list <span class="fu">=</span> reverse list</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    (head<span class="fu">:</span>tail) <span class="fu">=</span> reversedList ys</a></code></pre></div>
+<h3 id="code-in-scala">Code in Scala</h3>
+<p>Scala code. Check haskell explaination.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">case</span> <span class="kw">class</span> Queue[A](dequeueList: List[A], enqueueList: List[A]) {</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="kw">def</span> <span class="fu">enqueue</span>(elem: A): Queue[A] = <span class="kw">this</span> <span class="kw">match</span> {</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="kw">case</span> Queue(xs, ys) =&gt; Queue(xs, elem :: ys)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  }</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">  <span class="kw">def</span> tryDequeue: Option[(A, Queue[A])] = <span class="kw">this</span> <span class="kw">match</span> {</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="kw">case</span> Queue(Nil, Nil) =&gt; None</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="kw">case</span> Queue(x :: xs, ys) =&gt; Some(x -&gt; Queue(xs, ys))</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="kw">case</span> Queue(Nil, ys) =&gt;</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">      <span class="kw">val</span> head :: tail = ys.<span class="fu">reverse</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">      Some(head -&gt; Queue(tail, Nil))</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="kw">object</span> Queue {</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">  <span class="kw">def</span> empty[A]: Queue[A] = Queue(Nil, Nil)</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">}</a></code></pre></div>
+<h3 id="live-coding-videos">Live coding videos</h3>
+<h4 id="haskell-live-coding-video">Haskell live coding video</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bJC6ajEsSVI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<h4 id="scala-live-coding-video">Scala live coding video</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mEQzlj_RVJ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>]]></summary>
 </entry>
 <entry>
     <title>Getting started with nix</title>
@@ -39,7 +98,8 @@
 <a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="ex">meta-data</span> (contains name and version)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="bu">source</span> code snapshot</a>
 <a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="ex">built</span> tools and compiler flags</a></code></pre></div>
-<p>Though above definition gives some idea about the nix. But Lets understand nix using an example. In this example lets create a nix package using nix expression language then, create a derivation from the nix expression and finally build the package.</p>]]></summary>
+<p>Though above definition gives some idea about the nix. But Lets understand nix using an example. In this example lets create a nix package using nix expression language then, create a derivation from the nix expression and finally build the package.</p>
+<p>to be continued …</p>]]></summary>
 </entry>
 <entry>
     <title>Content aware static file serving</title>
