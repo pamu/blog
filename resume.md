@@ -22,7 +22,11 @@ __Programming Skills__
 
 __Work Experience__
 
-- _Evolution Gaming_ (May. 2017 - Present)
+- _Segment of One_ ([https://so1.ai](https://so1.ai)) (Oct. 2018 - Present)
+  - Software development engineer
+  - Berlin, Germany
+
+- _Evolution Gaming_ (May. 2017 - Sept. 2018)
   - Scala developer
   - Riga, Latvia, Europe
 

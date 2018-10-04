@@ -78,8 +78,7 @@ tryDequeue (Queue [] []) = Nothing
 tryDequeue (Queue (x:xs) ys) = Just (x, Queue xs ys)
 tryDequeue (Queue [] ys) = Just (head, Queue tail [])
   where
-    reversedList list = reverse list
-    (head:tail) = reversedList ys
+    (head:tail) = reverse ys
 ```
 
 

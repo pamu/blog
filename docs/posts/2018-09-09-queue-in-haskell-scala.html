@@ -76,8 +76,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3">tryDequeue (<span class="dt">Queue</span> (x<span class="fu">:</span>xs) ys) <span class="fu">=</span> <span class="dt">Just</span> (x, <span class="dt">Queue</span> xs ys)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">tryDequeue (<span class="dt">Queue</span> [] ys) <span class="fu">=</span> <span class="dt">Just</span> (head, <span class="dt">Queue</span> tail [])</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw">where</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">    reversedList list <span class="fu">=</span> reverse list</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">    (head<span class="fu">:</span>tail) <span class="fu">=</span> reversedList ys</a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    (head<span class="fu">:</span>tail) <span class="fu">=</span> reverse ys</a></code></pre></div>
 <h3 id="code-in-scala">Code in Scala</h3>
 <p>Scala code. Check haskell explaination.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode scala"><code class="sourceCode scala"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">case</span> <span class="kw">class</span> Queue[A](dequeueList: List[A], enqueueList: List[A]) {</a>
